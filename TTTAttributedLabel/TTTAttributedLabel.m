@@ -478,7 +478,8 @@ static inline CGSize CTFramesetterSuggestFrameSizeForAttributedStringWithConstra
     }
 #endif
 
-    [super setText:[self.attributedText string]];
+    // call self not super so links get parsed
+    [self setText:[self.attributedText string]];
 }
 
 - (NSAttributedString *)renderedAttributedText {
@@ -1134,7 +1135,8 @@ static inline CGSize CTFramesetterSuggestFrameSizeForAttributedStringWithConstra
         return;
     }
 
-    self.attributedText = text;
+    // don't set attributed text here because that overloaded method also calls setText, will get infinite loop
+    //    self.attributedText = text;
     self.activeLink = nil;
 
     self.linkModels = [NSArray array];
