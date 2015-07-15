@@ -1186,6 +1186,8 @@ afterInheritingLabelAttributesAndConfiguringWithBlock:(NSMutableAttributedString
         [mutableAttributedString addAttributes:NSAttributedStringAttributesFromLabel(self) range:NSMakeRange(0, [mutableAttributedString length])];
     }
 
+    _attributedText = mutableAttributedString;
+    
     if (block) {
         mutableAttributedString = block(mutableAttributedString);
     }
