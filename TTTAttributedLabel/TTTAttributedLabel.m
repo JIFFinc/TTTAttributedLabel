@@ -479,7 +479,7 @@ static inline CGSize CTFramesetterSuggestFrameSizeForAttributedStringWithConstra
 #endif
 
     // call self not super so links get parsed
-    [self setText:[self.attributedText string]];
+    [self setText:self.attributedText];
 }
 
 - (NSAttributedString *)renderedAttributedText {
